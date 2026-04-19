@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JSU Walkability Web Map</title>
+  <title>JSU Walkability Web GIS</title>
 
   <link
     rel="stylesheet"
@@ -27,7 +27,7 @@
       </div>
 
       <div class="sidebar-scroll">
-        <div class="panel">
+        <div class="panel controls-panel">
           <label for="startSelect">Start</label>
           <select id="startSelect">
             <option value="">Select start point</option>
@@ -51,14 +51,88 @@
           </div>
         </div>
 
-        <div class="panel">
+        <div class="panel result-panel">
           <h2>Decision Result</h2>
           <div id="resultBox">
             Select a start and end point to compare route options.
           </div>
         </div>
+      </div>
+    </aside>
 
-        <div class="panel">
+    <main class="main-content">
+      <section class="map-section">
+        <div id="map">
+          <div class="map-floating-card map-qr-card">
+            <h3>Scan to Open</h3>
+            <div id="qrBox" class="qr-wrap"></div>
+            <p>Open this map on another device.</p>
+          </div>
+
+          <div class="map-floating-card map-stack-card desktop-stack-card">
+            <h3>Project Stack</h3>
+
+            <div class="stack-list">
+              <div class="stack-row">
+                <div class="stack-label">
+                  <span class="stack-icon arcgis-icon">A</span>
+                  <span>ArcGIS Pro</span>
+                </div>
+                <span class="stack-percent">40%</span>
+              </div>
+              <div class="stack-bar"><span class="stack-fill arcgis-fill" style="width: 40%;"></span></div>
+
+              <div class="stack-row">
+                <div class="stack-label">
+                  <span class="stack-icon leaflet-icon">L</span>
+                  <span>Leaflet</span>
+                </div>
+                <span class="stack-percent">25%</span>
+              </div>
+              <div class="stack-bar"><span class="stack-fill leaflet-fill" style="width: 25%;"></span></div>
+
+              <div class="stack-row">
+                <div class="stack-label">
+                  <span class="stack-icon osm-icon">O</span>
+                  <span>OpenStreetMap</span>
+                </div>
+                <span class="stack-percent">15%</span>
+              </div>
+              <div class="stack-bar"><span class="stack-fill osm-fill" style="width: 15%;"></span></div>
+
+              <div class="stack-row">
+                <div class="stack-label">
+                  <span class="stack-icon html-icon">HTML5</span>
+                  <span>HTML</span>
+                </div>
+                <span class="stack-percent">10%</span>
+              </div>
+              <div class="stack-bar"><span class="stack-fill html-fill" style="width: 10%;"></span></div>
+
+              <div class="stack-row">
+                <div class="stack-label">
+                  <span class="stack-icon css-icon">CSS3</span>
+                  <span>CSS</span>
+                </div>
+                <span class="stack-percent">5%</span>
+              </div>
+              <div class="stack-bar"><span class="stack-fill css-fill" style="width: 5%;"></span></div>
+
+              <div class="stack-row">
+                <div class="stack-label">
+                  <span class="stack-icon js-icon">JS</span>
+                  <span>JavaScript</span>
+                </div>
+                <span class="stack-percent">5%</span>
+              </div>
+              <div class="stack-bar"><span class="stack-fill js-fill" style="width: 5%;"></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="below-map-panels">
+        <div class="panel legend-panel">
           <h2>Legend</h2>
           <div class="legend-item"><span class="legend-best"></span> Quickest route</div>
           <div class="legend-item"><span class="legend-alt"></span> Alternative modeled routes</div>
@@ -127,75 +201,7 @@
             <div class="stack-bar"><span class="stack-fill js-fill" style="width: 5%;"></span></div>
           </div>
         </div>
-      </div>
-    </aside>
-
-    <main id="map">
-      <div class="map-floating-card map-qr-card">
-        <h3>Scan to Open</h3>
-        <div id="qrBox" class="qr-wrap"></div>
-        <p>Open this map on another device.</p>
-      </div>
-
-      <div class="map-floating-card map-stack-card desktop-stack-card">
-        <h3>Project Stack</h3>
-
-        <div class="stack-list">
-          <div class="stack-row">
-            <div class="stack-label">
-              <span class="stack-icon arcgis-icon">A</span>
-              <span>ArcGIS Pro</span>
-            </div>
-            <span class="stack-percent">40%</span>
-          </div>
-          <div class="stack-bar"><span class="stack-fill arcgis-fill" style="width: 40%;"></span></div>
-
-          <div class="stack-row">
-            <div class="stack-label">
-              <span class="stack-icon leaflet-icon">L</span>
-              <span>Leaflet</span>
-            </div>
-            <span class="stack-percent">25%</span>
-          </div>
-          <div class="stack-bar"><span class="stack-fill leaflet-fill" style="width: 25%;"></span></div>
-
-          <div class="stack-row">
-            <div class="stack-label">
-              <span class="stack-icon osm-icon">O</span>
-              <span>OpenStreetMap</span>
-            </div>
-            <span class="stack-percent">15%</span>
-          </div>
-          <div class="stack-bar"><span class="stack-fill osm-fill" style="width: 15%;"></span></div>
-
-          <div class="stack-row">
-            <div class="stack-label">
-              <span class="stack-icon html-icon">HTML5</span>
-              <span>HTML</span>
-            </div>
-            <span class="stack-percent">10%</span>
-          </div>
-          <div class="stack-bar"><span class="stack-fill html-fill" style="width: 10%;"></span></div>
-
-          <div class="stack-row">
-            <div class="stack-label">
-              <span class="stack-icon css-icon">CSS3</span>
-              <span>CSS</span>
-            </div>
-            <span class="stack-percent">5%</span>
-          </div>
-          <div class="stack-bar"><span class="stack-fill css-fill" style="width: 5%;"></span></div>
-
-          <div class="stack-row">
-            <div class="stack-label">
-              <span class="stack-icon js-icon">JS</span>
-              <span>JavaScript</span>
-            </div>
-            <span class="stack-percent">5%</span>
-          </div>
-          <div class="stack-bar"><span class="stack-fill js-fill" style="width: 5%;"></span></div>
-        </div>
-      </div>
+      </section>
     </main>
   </div>
 

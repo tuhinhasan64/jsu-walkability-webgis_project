@@ -285,6 +285,23 @@ button:hover {
   border-radius: 4px;
 }
 
+.main-content {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.map-section {
+  min-width: 0;
+  min-height: 0;
+}
+
+.below-map-panels {
+  display: none;
+}
+
 .mobile-stack-panel {
   display: none;
 }
@@ -413,7 +430,8 @@ button:hover {
   padding: 14px 15px;
 }
 
-.map-stack-card h3 {
+.map-stack-card h3,
+.mobile-stack-panel h2 {
   margin: 0 0 12px;
   font-size: 0.92rem;
 }
@@ -541,7 +559,7 @@ button:hover {
   display: block;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 640px) {
   html,
   body {
     overflow: auto;
@@ -553,8 +571,7 @@ button:hover {
   }
 
   .app {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto minmax(58vh, 1fr);
+    display: block;
     width: 100%;
     height: auto;
     min-height: 100vh;
@@ -562,32 +579,22 @@ button:hover {
 
   .sidebar {
     border-right: none;
-    border-bottom: 1px solid var(--border);
+    border-bottom: none;
     box-shadow: none;
     max-height: none;
+    overflow: visible;
   }
 
-  .sidebar-header {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    padding: 18px 16px 12px 16px;
+  .main-content {
+    display: block;
+    height: auto;
   }
 
-  .sidebar-scroll {
-    padding: 12px;
+  .below-map-panels {
+    display: block;
+    padding: 10px;
   }
 
-  #map {
-    min-height: 58vh;
-  }
-
-  .map-stack-card {
-    width: 240px;
-  }
-}
-
-@media (max-width: 640px) {
   .desktop-stack-card {
     display: none !important;
   }
@@ -596,7 +603,14 @@ button:hover {
     display: block;
   }
 
+  .map-qr-card {
+    display: none !important;
+  }
+
   .sidebar-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
     padding: 16px 14px 12px 14px;
   }
 
@@ -620,6 +634,7 @@ button:hover {
 
   .sidebar-scroll {
     padding: 10px;
+    overflow: visible;
   }
 
   .panel {
@@ -654,6 +669,11 @@ button:hover {
     font-size: 0.8rem;
   }
 
+  #map {
+    min-height: 58vh;
+    height: 58vh;
+  }
+
   .node-label-large {
     font-size: 12px;
     padding: 3px 7px;
@@ -662,28 +682,6 @@ button:hover {
   .node-label-small {
     font-size: 10px;
     padding: 2px 5px;
-  }
-
-  .map-qr-card {
-    top: 10px;
-    right: 10px;
-    width: 124px;
-    padding: 9px;
-  }
-
-  .map-qr-card h3 {
-    font-size: 0.74rem;
-  }
-
-  .map-qr-card p {
-    font-size: 0.64rem;
-  }
-
-  .map-qr-card #qrBox img,
-  .map-qr-card #qrBox canvas {
-    width: 90px !important;
-    height: 90px !important;
-    border-radius: 6px !important;
   }
 
   .stack-label {
