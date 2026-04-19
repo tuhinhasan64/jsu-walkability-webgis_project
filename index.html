@@ -15,10 +15,15 @@
   <div class="app">
     <aside class="sidebar">
       <div class="sidebar-header">
-        <h1>JSU Walkability Web GIS</h1>
-        <p class="subtitle">
-          Micro-scale campus route decision mapping with quickest-path analysis
-        </p>
+        <div class="project-brand">
+          <div class="project-logo">JW</div>
+          <div class="project-title-wrap">
+            <h1>JSU Walkability Web GIS</h1>
+            <p class="subtitle">
+              Micro-scale campus route decision mapping with quickest-path analysis
+            </p>
+          </div>
+        </div>
       </div>
 
       <div class="sidebar-scroll">
@@ -54,12 +59,6 @@
         </div>
 
         <div class="panel">
-          <h2>Open on Device</h2>
-          <div id="qrBox" class="qr-wrap"></div>
-          <div class="qr-note">Scan to open this map on another device.</div>
-        </div>
-
-        <div class="panel">
           <h2>Legend</h2>
           <div class="legend-item"><span class="legend-best"></span> Quickest route</div>
           <div class="legend-item"><span class="legend-alt"></span> Alternative modeled routes</div>
@@ -71,7 +70,24 @@
       </div>
     </aside>
 
-    <main id="map"></main>
+    <main id="map">
+      <div class="map-floating-card map-qr-card">
+        <h3>Scan to Open</h3>
+        <div id="qrBox" class="qr-wrap"></div>
+        <p>Open this map on another device.</p>
+      </div>
+
+      <div class="map-floating-card map-stack-card">
+        <h3>Project Stack</h3>
+        <div class="stack-list">
+          <div class="stack-item"><span>ArcGIS Pro</span><span>40%</span></div>
+          <div class="stack-item"><span>Leaflet</span><span>25%</span></div>
+          <div class="stack-item"><span>OpenStreetMap</span><span>15%</span></div>
+          <div class="stack-item"><span>JavaScript</span><span>10%</span></div>
+          <div class="stack-item"><span>HTML/CSS</span><span>10%</span></div>
+        </div>
+      </div>
+    </main>
   </div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
