@@ -392,12 +392,12 @@ button:hover {
 .map-qr-card #qrBox canvas {
   width: 118px !important;
   height: 118px !important;
-  border-radius: 50% !important;
+  border-radius: 8px !important;
   overflow: hidden;
   display: block;
   margin: 0 auto;
   background: #fff;
-  padding: 8px;
+  padding: 6px;
   border: 1px solid var(--border);
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.02);
 }
@@ -663,11 +663,12 @@ button:hover {
     font-size: 0.64rem;
   }
 
-  .map-qr-card #qrBox img,
-  .map-qr-card #qrBox canvas {
-    width: 90px !important;
-    height: 90px !important;
-  }
+.map-qr-card #qrBox img,
+.map-qr-card #qrBox canvas {
+  width: 90px !important;
+  height: 90px !important;
+  border-radius: 6px !important;
+}
 
   .map-stack-card {
     right: 10px;
@@ -693,5 +694,18 @@ button:hover {
     height: 20px;
     font-size: 0.62rem;
     padding: 0 6px;
+  }
+}
+
+@media (max-width: 640px) {
+  .map-qr-card p {
+    font-size: 0.62rem;
+    line-height: 1.25;
+    margin-top: 6px;
+  }
+
+  .map-qr-card {
+    width: 124px;
+    padding: 8px;
   }
 }
