@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JSU Walkability Web GIS</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>JSU Walkability Web GIS</h1>
+        <p class="subtitle">
+          Micro-scale campus route decision mapping with quickest-path analysis
+        </p>
+      </div>
+
+      <div class="sidebar-scroll">
+        <div class="panel">
+          <label for="startSelect">Start</label>
+          <select id="startSelect">
+            <option value="">Select start point</option>
+          </select>
+
+          <label for="endSelect">End</label>
+          <select id="endSelect">
+            <option value="">Select end point</option>
+          </select>
+
+          <label for="paceSelect">Walking Pace</label>
+          <select id="paceSelect">
+            <option value="1.1">Easy pace</option>
+            <option value="1.3" selected>Normal pace</option>
+            <option value="1.5">Fast pace</option>
+          </select>
+
+          <div class="button-row">
+            <button id="findRouteBtn">Find Quickest Path</button>
+            <button id="resetBtn" class="secondary">Reset</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Decision Result</h2>
+          <div id="resultBox">
+            Select a start and end point to compare route options.
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>Open on Device</h2>
+          <div id="qrBox" class="qr-wrap"></div>
+          <div class="qr-note">Scan to open this map on another device.</div>
+        </div>
+
+        <div class="panel">
+          <h2>Legend</h2>
+          <div class="legend-item"><span class="legend-best"></span> Quickest route</div>
+          <div class="legend-item"><span class="legend-alt"></span> Alternative modeled routes</div>
+          <div class="legend-item"><span class="legend-line"></span> Unused network edges</div>
+          <div class="legend-item"><span class="legend-node"></span> Decision nodes</div>
+          <div class="legend-item"><span class="legend-building"></span> Buildings</div>
+          <div class="legend-item"><span class="legend-parking"></span> Parking area</div>
+        </div>
+      </div>
+    </aside>
+
+    <main id="map"></main>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
