@@ -468,22 +468,14 @@ function updateQrCode() {
   if (!qrBox) return;
 
   const currentUrl = window.location.href;
-  const encoded = encodeURIComponent(currentUrl);
-  const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encoded}`;
+  qrBox.innerHTML = "";
 
-  qrBox.innerHTML = `
-    <a href="${currentUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;">
-      <img
-        src="${qrUrl}"
-        alt="QR code for this web map"
-        style="width: 130px; height: 130px; border-radius: 12px; border: 1px solid #e5e7eb; display:block; margin:0 auto 8px;"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-      />
-      <div style="display:none; font-size:12px; color:#6b7280; line-height:1.4;">
-        QR unavailable.<br>Tap to open link.
-      </div>
-    </a>
-  `;
+  new QRCode(qrBox, {
+    text: currentUrl,
+    width: 130,
+    height: 130,
+    correctLevel: QRCode.CorrectLevel.M
+  });
 }
 
 async function loadLayers() {

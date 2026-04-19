@@ -70,19 +70,15 @@ body {
   gap: 12px;
 }
 
-.project-logo {
-  width: 42px;
-  height: 42px;
+.project-logo-img {
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #b5121b, #d9485a);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.05rem;
-  font-weight: 700;
+  object-fit: cover;
   flex-shrink: 0;
-  box-shadow: 0 6px 16px rgba(181, 18, 27, 0.18);
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  background: #fff;
 }
 
 .project-title-wrap {
@@ -90,7 +86,7 @@ body {
 }
 
 .sidebar h1 {
-  margin: 0 0 6px 0;
+  margin: 0 0 8px 0;
   font-size: 1.12rem;
   line-height: 1.2;
   font-weight: 700;
@@ -362,13 +358,12 @@ button:hover {
   border-top-color: rgba(255, 255, 255, 0.95);
 }
 
-/* floating map cards */
 .map-floating-card {
   position: absolute;
   z-index: 700;
   background: rgba(255, 255, 255, 0.96);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: 18px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
   backdrop-filter: blur(8px);
 }
@@ -376,7 +371,7 @@ button:hover {
 .map-qr-card {
   top: 14px;
   right: 14px;
-  width: 154px;
+  width: 160px;
   padding: 12px;
   text-align: center;
 }
@@ -393,39 +388,136 @@ button:hover {
   line-height: 1.35;
 }
 
+.map-qr-card #qrBox img,
+.map-qr-card #qrBox canvas {
+  width: 118px !important;
+  height: 118px !important;
+  border-radius: 50% !important;
+  overflow: hidden;
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+  padding: 8px;
+  border: 1px solid var(--border);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.02);
+}
+
 .map-stack-card {
-  left: 14px;
+  right: 14px;
   bottom: 14px;
-  width: 220px;
-  padding: 12px 13px;
+  width: 285px;
+  padding: 14px 15px;
 }
 
 .map-stack-card h3 {
-  margin: 0 0 8px;
-  font-size: 0.9rem;
+  margin: 0 0 12px;
+  font-size: 0.92rem;
 }
 
 .stack-list {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 10px;
 }
 
-.stack-item {
+.stack-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  font-size: 0.8rem;
 }
 
-.stack-item span:first-child {
-  color: var(--text);
-}
-
-.stack-item span:last-child {
-  color: var(--muted);
+.stack-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 0.82rem;
   font-weight: 600;
+}
+
+.stack-percent {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.stack-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 24px;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+}
+
+.arcgis-icon {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+}
+
+.leaflet-icon {
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+
+.osm-icon {
+  background: linear-gradient(135deg, #0f766e, #14b8a6);
+}
+
+.html-icon {
+  background: linear-gradient(135deg, #e44d26, #f16529);
+}
+
+.css-icon {
+  background: linear-gradient(135deg, #264de4, #2965f1);
+}
+
+.js-icon {
+  background: linear-gradient(135deg, #d4a017, #f7df1e);
+  color: #111827;
+}
+
+.stack-bar {
+  width: 100%;
+  height: 8px;
+  background: #edf0f3;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.stack-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+}
+
+.arcgis-fill {
+  background: linear-gradient(90deg, #7c3aed, #a855f7);
+}
+
+.leaflet-fill {
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+}
+
+.osm-fill {
+  background: linear-gradient(90deg, #0f766e, #14b8a6);
+}
+
+.html-fill {
+  background: linear-gradient(90deg, #e44d26, #f16529);
+}
+
+.css-fill {
+  background: linear-gradient(90deg, #264de4, #2965f1);
+}
+
+.js-fill {
+  background: linear-gradient(90deg, #d4a017, #f7df1e);
 }
 
 .qr-wrap {
@@ -441,7 +533,6 @@ button:hover {
   font-size: 0.76rem;
 }
 
-/* Tablet */
 @media (max-width: 960px) {
   html,
   body {
@@ -484,11 +575,10 @@ button:hover {
   }
 
   .map-stack-card {
-    width: 190px;
+    width: 240px;
   }
 }
 
-/* Mobile */
 @media (max-width: 640px) {
   .sidebar-header {
     padding: 16px 14px 12px 14px;
@@ -498,11 +588,10 @@ button:hover {
     gap: 10px;
   }
 
-  .project-logo {
-    width: 36px;
-    height: 36px;
+  .project-logo-img {
+    width: 38px;
+    height: 38px;
     border-radius: 10px;
-    font-size: 0.95rem;
   }
 
   .sidebar h1 {
@@ -562,7 +651,7 @@ button:hover {
   .map-qr-card {
     top: 10px;
     right: 10px;
-    width: 118px;
+    width: 124px;
     padding: 9px;
   }
 
@@ -574,10 +663,16 @@ button:hover {
     font-size: 0.64rem;
   }
 
+  .map-qr-card #qrBox img,
+  .map-qr-card #qrBox canvas {
+    width: 90px !important;
+    height: 90px !important;
+  }
+
   .map-stack-card {
-    left: 10px;
+    right: 10px;
     bottom: 10px;
-    width: 160px;
+    width: 200px;
     padding: 10px;
   }
 
@@ -585,7 +680,18 @@ button:hover {
     font-size: 0.76rem;
   }
 
-  .stack-item {
+  .stack-label {
     font-size: 0.72rem;
+  }
+
+  .stack-percent {
+    font-size: 0.68rem;
+  }
+
+  .stack-icon {
+    min-width: 28px;
+    height: 20px;
+    font-size: 0.62rem;
+    padding: 0 6px;
   }
 }

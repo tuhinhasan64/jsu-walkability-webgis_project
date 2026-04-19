@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JSU Walkability Web GIS</title>
+  <title>JSU Walkability Web Map</title>
 
   <link
     rel="stylesheet"
@@ -16,9 +16,9 @@
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="project-brand">
-          <div class="project-logo">JW</div>
+          <img src="assets/logo.png" alt="Project logo" class="project-logo-img" />
           <div class="project-title-wrap">
-            <h1>JSU Walkability Web GIS</h1>
+            <h1>JSU Walkability Web Map</h1>
             <p class="subtitle">
               Micro-scale campus route decision mapping with quickest-path analysis
             </p>
@@ -79,18 +79,68 @@
 
       <div class="map-floating-card map-stack-card">
         <h3>Project Stack</h3>
+
         <div class="stack-list">
-          <div class="stack-item"><span>ArcGIS Pro</span><span>40%</span></div>
-          <div class="stack-item"><span>Leaflet</span><span>25%</span></div>
-          <div class="stack-item"><span>OpenStreetMap</span><span>15%</span></div>
-          <div class="stack-item"><span>JavaScript</span><span>10%</span></div>
-          <div class="stack-item"><span>HTML/CSS</span><span>10%</span></div>
+          <div class="stack-row">
+            <div class="stack-label">
+              <span class="stack-icon arcgis-icon">A</span>
+              <span>ArcGIS Pro</span>
+            </div>
+            <span class="stack-percent">40%</span>
+          </div>
+          <div class="stack-bar"><span class="stack-fill arcgis-fill" style="width: 40%;"></span></div>
+
+          <div class="stack-row">
+            <div class="stack-label">
+              <span class="stack-icon leaflet-icon">L</span>
+              <span>Leaflet</span>
+            </div>
+            <span class="stack-percent">25%</span>
+          </div>
+          <div class="stack-bar"><span class="stack-fill leaflet-fill" style="width: 25%;"></span></div>
+
+          <div class="stack-row">
+            <div class="stack-label">
+              <span class="stack-icon osm-icon">O</span>
+              <span>OpenStreetMap</span>
+            </div>
+            <span class="stack-percent">15%</span>
+          </div>
+          <div class="stack-bar"><span class="stack-fill osm-fill" style="width: 15%;"></span></div>
+
+          <div class="stack-row">
+            <div class="stack-label">
+              <span class="stack-icon html-icon">HTML5</span>
+              <span>HTML</span>
+            </div>
+            <span class="stack-percent">10%</span>
+          </div>
+          <div class="stack-bar"><span class="stack-fill html-fill" style="width: 10%;"></span></div>
+
+          <div class="stack-row">
+            <div class="stack-label">
+              <span class="stack-icon css-icon">CSS3</span>
+              <span>CSS</span>
+            </div>
+            <span class="stack-percent">5%</span>
+          </div>
+          <div class="stack-bar"><span class="stack-fill css-fill" style="width: 5%;"></span></div>
+
+          <div class="stack-row">
+            <div class="stack-label">
+              <span class="stack-icon js-icon">JS</span>
+              <span>JavaScript</span>
+            </div>
+            <span class="stack-percent">5%</span>
+          </div>
+          <div class="stack-bar"><span class="stack-fill js-fill" style="width: 5%;"></span></div>
         </div>
       </div>
     </main>
   </div>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
